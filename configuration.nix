@@ -22,6 +22,7 @@
     useOSProber = true;        # supaya GRUB mendeteksi Windows di ESP yang sama
     configurationLimit = 5;
   };
+  boot.loader.timeout = 30;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";  # sesuaikan kalau mount point ESP kamu beda
  
