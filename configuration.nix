@@ -25,7 +25,7 @@
   boot.loader.timeout = 30;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";  # sesuaikan kalau mount point ESP kamu beda
- 
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -103,12 +103,14 @@
     wget
     curl
     git
+    gh
     vscodium
     brave
     fastfetch
     btop
     mpv
     onlyoffice-desktopeditors
+    cava
   ];
 
   environment.gnome.excludePackages = with pkgs; [
