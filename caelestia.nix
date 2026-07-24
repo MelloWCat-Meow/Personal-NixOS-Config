@@ -43,7 +43,7 @@
           "exec-once" = [ "caelestia shell -d" ];
 
           monitor = [
-            ",preferred,auto,1"
+            ",preferred,auto,1.25"
           ];
 
           bind = [
