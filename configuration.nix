@@ -123,7 +123,8 @@
     btop
     mpv
     onlyoffice-desktopeditors
-    cavanodePackages.prettier       
+    cava
+    nodePackages.prettier       
     nodePackages."@prettier/plugin-php"
     nixfmt
   ];
