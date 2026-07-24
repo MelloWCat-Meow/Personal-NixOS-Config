@@ -124,8 +124,6 @@
     mpv
     onlyoffice-desktopeditors
     cava
-    nodePackages.prettier       
-    nodePackages."@prettier/plugin-php"
     nixfmt
   ];
 
