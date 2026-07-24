@@ -125,6 +125,8 @@
     onlyoffice-desktopeditors
     cava
     nixfmt
+    uget
+    uget-integrator
   ];
 
   environment.gnome.excludePackages = with pkgs; [
