@@ -22,8 +22,6 @@
         systemd.enable = false;
       };
 
-      # Symlink shell.json ke folder dotfiles di repo /etc/nixos kamu sendiri
-      # (ganti path ini sesuai lokasi folder dotfiles kamu yang sebenarnya)
       xdg.configFile."caelestia" = {
         source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/caelestia";
         force = true;
@@ -32,7 +30,6 @@
 
       home.packages = with pkgs; [ foot ];
 
-      # Autostart caelestia shell saat masuk session Hyprland
       wayland.windowManager.hyprland = {
         enable = true;
         configType = "hyprlang";
@@ -79,8 +76,8 @@
           ];
 
           decoration = {
-            rounding = 10; # makin besar makin bulat, coba 8-15 buat awal
-            rounding_power = 2; # opsional, atur kurva rounding (2 = default/circular)
+            rounding = 10;
+            rounding_power = 2;
 
             blur = {
               enabled = true;
