@@ -52,6 +52,19 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-hyprland
+    ];
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
