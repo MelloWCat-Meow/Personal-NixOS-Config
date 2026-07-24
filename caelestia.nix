@@ -36,14 +36,15 @@
       wayland.windowManager.hyprland = {
         enable = true;
         configType = "hyprlang";
-        monitor = [
-          ",preferred,auto,1"
-        ];
         settings = {
           "$mod" = "SUPER";
           "$terminal" = "foot";
           "$browser" = "brave";
           "exec-once" = [ "caelestia shell -d" ];
+
+          monitor = [
+            ",preferred,auto,1"
+          ];
 
           bind = [
             "$mod, T, exec, $terminal"
