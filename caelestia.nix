@@ -32,10 +32,12 @@
       settings = {
         "$mod" = "SUPER";
         "$terminal" = "foot";
+        "$browser"  = "brave";
         "exec-once" = [ "caelestia shell -d" ];
 
         bind = [
-          "$mod, Return, exec, $terminal"
+          "$mod, T, exec, $terminal"
+          "$mod, B, exec, $browser"
           "$mod, Q, killactive"
           "$mod, M, exit"
           "$mod, V, togglefloating"
