@@ -78,6 +78,23 @@
             "$mod SHIFT, 4, movetoworkspace, 4"
           ];
 
+          decoration = {
+            rounding = 10; # makin besar makin bulat, coba 8-15 buat awal
+            rounding_power = 2; # opsional, atur kurva rounding (2 = default/circular)
+
+            blur = {
+              enabled = true;
+              size = 5;
+              passes = 2;
+            };
+
+            shadow = {
+              enabled = true;
+              range = 15;
+              render_power = 3;
+            };
+          };
+
           bindm = [
             "$mod, mouse:272, movewindow"
             "$mod, mouse:273, resizewindow"
