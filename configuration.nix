@@ -5,26 +5,29 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Enable flakes support
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub = {
     enable = true;
-    device = "nodev";          # karena UEFI, bukan install ke MBR
+    device = "nodev"; # karena UEFI, bukan install ke MBR
     efiSupport = true;
-    useOSProber = true;        # supaya GRUB mendeteksi Windows di ESP yang sama
+    useOSProber = true; # supaya GRUB mendeteksi Windows di ESP yang sama
     configurationLimit = 5;
   };
   boot.loader.timeout = 30;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";  # sesuaikan kalau mount point ESP kamu beda
+  boot.loader.efi.efiSysMountPoint = "/boot"; # sesuaikan kalau mount point ESP kamu beda
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -97,9 +100,12 @@
   users.users."mellowcat" = {
     isNormalUser = true;
     description = "MelloWCat";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -108,6 +114,12 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  #FlatFuck
+  services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "org.freedownloadmanager.Manager"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -125,29 +137,27 @@
     onlyoffice-desktopeditors
     cava
     nixfmt
-    uget
-    uget-integrator
   ];
 
   environment.gnome.excludePackages = with pkgs; [
-  gnome-tour
-  gnome-maps
-  gnome-weather
-  gnome-contacts
-  gnome-music
-  gnome-characters
-  gnome-connections
-  gnome-user-docs
-  gnome-logs
-  gnome-font-viewer
-  gnome-disk-utility
-  gnome-calendar
-  gnome-remote-desktop
-  simple-scan
-  showtime
-  evince
-  papers
-  epiphany
+    gnome-tour
+    gnome-maps
+    gnome-weather
+    gnome-contacts
+    gnome-music
+    gnome-characters
+    gnome-connections
+    gnome-user-docs
+    gnome-logs
+    gnome-font-viewer
+    gnome-disk-utility
+    gnome-calendar
+    gnome-remote-desktop
+    simple-scan
+    showtime
+    evince
+    papers
+    epiphany
   ];
 
   services.xserver.excludePackages = [ pkgs.xterm ];
