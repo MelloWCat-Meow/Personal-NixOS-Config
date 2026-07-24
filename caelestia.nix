@@ -31,11 +31,12 @@
       home.packages = with pkgs; [ foot ];
 
       home.pointerCursor = {
-            package = pkgs.bibata-cursors;
-            name = "Bibata-Modern-Ice";
-            size = 24;
-            gtk.enable = true;
-          };
+        enable = true;
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Ice";
+        size = 24;
+        gtk.enable = true;
+      };
 
       wayland.windowManager.hyprland = {
         enable = true;
