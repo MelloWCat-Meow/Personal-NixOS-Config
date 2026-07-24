@@ -6,7 +6,8 @@
   home-manager.extraSpecialArgs = { inherit inputs; };
 
   home-manager.users.mellowcat = { config, pkgs, inputs, ... }: {
-    imports = [ inputs.caelestia-shell.homeModules.default ];
+    imports = [ inputs.caelestia-shell.homeManagerModules.default ];
+    home.stateVersion = "26.05";
 
     programs.caelestia = {
       enable = true;
