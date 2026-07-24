@@ -26,6 +26,7 @@
     # Autostart caelestia shell saat masuk session Hyprland
     wayland.windowManager.hyprland = {
       enable = true;
+      configType = "hyprlang";
       settings = {
         "exec-once" = [ "caelestia shell -d" ];
       };
