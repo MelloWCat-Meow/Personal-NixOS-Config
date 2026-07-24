@@ -19,7 +19,7 @@
     {
       self,
       nixpkgs,
-      home-manager
+      home-manager,
       ...
     }@inputs:
     {
