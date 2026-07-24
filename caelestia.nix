@@ -40,6 +40,8 @@
           "$mod" = "SUPER";
           "$terminal" = "foot";
           "$browser" = "brave";
+          "$files" = "nautilus";
+          "$ide" = "codium";
           "exec-once" = [ "caelestia shell -d" ];
 
           monitor = [
@@ -58,6 +60,8 @@
           bind = [
             "$mod, T, exec, $terminal"
             "$mod, B, exec, $browser"
+            "$mod, E, exec, $files"
+            "$mod, C, exec, $ide"
             "$mod, Q, killactive"
             "$mod, M, exit"
             "$mod, V, togglefloating"
