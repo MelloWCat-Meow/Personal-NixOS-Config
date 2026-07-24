@@ -75,6 +75,11 @@
             "$mod SHIFT, 4, movetoworkspace, 4"
           ];
 
+          bindm = [
+            "$mod, mouse:272, movewindow"
+            "$mod, mouse:273, resizewindow"
+          ];
+
           decoration = {
             rounding = 10;
             rounding_power = 2;
@@ -92,10 +97,12 @@
             };
           };
 
-          bindm = [
-            "$mod, mouse:272, movewindow"
-            "$mod, mouse:273, resizewindow"
-          ];
+          home.pointerCursor = {
+            package = pkgs.bibata-cursors;
+            name = "Bibata-Modern-Ice";
+            size = 24;
+            gtk.enable = true;
+          };
         };
       };
     };
