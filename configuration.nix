@@ -123,7 +123,9 @@
     btop
     mpv
     onlyoffice-desktopeditors
-    cava
+    cavanodePackages.prettier       
+    nodePackages."@prettier/plugin-php"
+    nixfmt
   ];
 
   environment.gnome.excludePackages = with pkgs; [
