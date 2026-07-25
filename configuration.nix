@@ -134,7 +134,14 @@
     onlyoffice-desktopeditors
     cava
     nixfmt
+    procps
+    zoom-us
+    discord
   ];
+
+  fonts.packages = with pkgs; [
+  nerd-fonts.jetbrains-mono
+];
 
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour

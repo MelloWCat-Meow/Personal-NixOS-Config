@@ -33,12 +33,12 @@
           config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/config.fish"
         );
         "fish/functions/fish_greeting.fish".source =
-          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/fish_greeting.fish";
+          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/functions/fish_greeting.fish";
         "starship.toml".source =
           config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/starship.toml";
         "foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/foot/foot.ini";
         "fastfetch/config.jsonc".source =
-          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/fastfetch.jsonc";
+          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fastfetch/config.jsonc";
       };
 
       programs.fish.enable = true;
