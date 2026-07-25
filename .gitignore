@@ -1,0 +1,19 @@
+# Mesin-spesifik — jangan di-commit, generate ulang pakai `nixos-generate-config`
+hardware-configuration.nix
+
+# Hasil build Nix
+result
+result-*
+
+# File secrets kalau nanti pakai sops-nix / agenix
+secrets.yaml
+secrets.json
+*.age
+*.key
+*.pem
+
+# Cache / editor
+.direnv/
+.envrc
+*.swp
+.DS_Store
