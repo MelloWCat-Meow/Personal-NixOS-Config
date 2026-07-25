@@ -129,6 +129,7 @@
     vscodium
     brave
     fastfetch
+    honeyfetch
     btop
     mpv
     onlyoffice-desktopeditors
