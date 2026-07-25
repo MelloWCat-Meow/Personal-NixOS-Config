@@ -132,7 +132,7 @@
     btop
     mpv
     onlyoffice-desktopeditors
-    cava
+    lavat
     nixfmt
     procps
     zoom-us
