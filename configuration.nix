@@ -93,6 +93,8 @@
     #media-session.enable = true;
   };
 
+  programs.fish.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -107,6 +109,7 @@
     packages = with pkgs; [
       #  thunderbird
     ];
+    shell = pkgs.fish;
   };
 
   # Install firefox.

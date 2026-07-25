@@ -9,6 +9,7 @@
     {
       config,
       pkgs,
+      lib,
       inputs,
       ...
     }:
@@ -22,12 +23,25 @@
         systemd.enable = false;
       };
 
-      xdg.configFile."caelestia" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/caelestia";
-        force = true;
-        recursive = true;
+      xdg.configFile = {
+        "caelestia" = {
+          source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/caelestia";
+          force = true;
+          recursive = true;
+        };
+        "fish/config.fish".source = lib.mkForce (
+          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/config.fish"
+        );
+        "fish/functions/fish_greeting.fish".source =
+          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/fish_greeting.fish";
+        "starship.toml".source =
+          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/starship.toml";
+        "fastfetch/config.jsonc".source =
+          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fish/fastfetch.jsonc";
       };
 
+      programs.fish.enable = true;
+      programs.starship.enable = true;
       home.packages = with pkgs; [ foot ];
 
       home.pointerCursor = {
@@ -63,7 +77,7 @@
           ];
 
           bind = [
-            "$mod, T, exec, $terminal"
+            "$mod, Return, exec, $terminal"
             "$mod, B, exec, $browser"
             "$mod, E, exec, $files"
             "$mod, C, exec, $ide"
