@@ -137,6 +137,7 @@
     procps
     zoom-us
     discord
+    motrix-next
   ];
 
   fonts.packages = with pkgs; [
