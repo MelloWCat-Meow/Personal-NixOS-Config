@@ -140,9 +140,17 @@
     motrix-next
   ];
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    zlib
+    openssl
+    curl
+  ];
+
   fonts.packages = with pkgs; [
-  nerd-fonts.jetbrains-mono
-];
+    nerd-fonts.jetbrains-mono
+  ];
 
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
