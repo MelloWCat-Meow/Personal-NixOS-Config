@@ -87,6 +87,7 @@
             "$mod, V, togglefloating"
             "$mod, F, fullscreen"
             "$mod, D, global, caelestia:launcher"
+            "$mod, L, global, caelestia:lock"
 
             "$mod, 1, workspace, 1"
             "$mod, 2, workspace, 2"
