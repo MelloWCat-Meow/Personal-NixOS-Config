@@ -1,4 +1,12 @@
-{ config, pkgs, ... }:
+
+# Mulai stack pas mau ngoding:
+#   sudo systemctl start webdev.target
+# Matiin lagi kalau udah selesai:
+#   sudo systemctl stop webdev.target
+# Cek status ketiganya:
+#   systemctl status webdev.target
+
+{ config, lib, pkgs, ... }:
 
 let
   phpWithExts = pkgs.php.withExtensions (
@@ -72,4 +80,25 @@ in
     phpPackages.composer
     nodejs_26
   ];
+
+  # --- Jangan auto-start pas boot ---
+  systemd.services.httpd.wantedBy = lib.mkForce [ ];
+  systemd.services.mysql.wantedBy = lib.mkForce [ ];
+  systemd.services."phpfpm-www".wantedBy = lib.mkForce [ ];
+
+  systemd.services."phpfpm-www".after = [ "mysql.service" ];
+  systemd.services.httpd.after = [
+    "mysql.service"
+    "phpfpm-www.service"
+  ];
+
+  # Satu target buat start/stop ketiganya bareng-bareng.
+  systemd.targets.webdev = {
+    description = "Local web dev stack (Apache + PHP-FPM + MariaDB)";
+    wants = [
+      "mysql.service"
+      "phpfpm-www.service"
+      "httpd.service"
+    ];
+  };
 }

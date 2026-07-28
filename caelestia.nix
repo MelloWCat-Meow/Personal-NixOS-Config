@@ -43,7 +43,13 @@
 
       programs.fish.enable = true;
       programs.starship.enable = true;
-      home.packages = with pkgs; [ foot ];
+      home.packages = with pkgs; [
+        foot
+        direnv
+        zoxide
+        eza
+        lazygit
+      ];
 
       home.pointerCursor = {
         enable = true;
@@ -63,6 +69,13 @@
           "$files" = "nautilus";
           "$ide" = "codium";
           "exec-once" = [ "caelestia shell -d" ];
+
+          # Force Electron/Chromium/Qt apps (Brave, VSCodium, Discord) to render
+          # natively on Wayland instead of falling back to blurry XWayland.
+          env = [
+            "NIXOS_OZONE_WL,1"
+            "QT_QPA_PLATFORM,wayland"
+          ];
 
           monitor = [
             ",preferred,auto,1.2"

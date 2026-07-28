@@ -16,18 +16,27 @@
     "flakes"
   ];
 
+  # Keep /nix/store from bloating: auto-GC old generations weekly,
+  # and auto dedupe store paths on every build.
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+  nix.settings.auto-optimise-store = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub = {
     enable = true;
-    device = "nodev"; # karena UEFI, bukan install ke MBR
+    device = "nodev"; 
     efiSupport = true;
-    useOSProber = true; # supaya GRUB mendeteksi Windows di ESP yang sama
+    useOSProber = true;
     configurationLimit = 5;
   };
   boot.loader.timeout = 30;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot"; # sesuaikan kalau mount point ESP kamu beda
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -121,7 +130,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     wget
     openssl
     unzip
@@ -136,7 +145,6 @@
     onlyoffice-desktopeditors
     lavat
     nixfmt
-    procps
     zoom-us
     discord
     motrix-next
