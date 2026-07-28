@@ -79,7 +79,7 @@
 
           bind = [
             "$mod, Return, exec, $terminal"
-            "$mod, B, exec, $browser"
+            "$mod, W, exec, $browser"
             "$mod, E, exec, $files"
             "$mod, C, exec, $ide"
             "$mod, Q, killactive"
