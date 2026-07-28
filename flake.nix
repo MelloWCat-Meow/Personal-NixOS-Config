@@ -29,6 +29,7 @@
         modules = [
           ./configuration.nix
           ./caelestia.nix
+          ./webdev.nix
           home-manager.nixosModules.home-manager
         ];
       };
