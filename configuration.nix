@@ -133,6 +133,7 @@
     neovim
     wget
     openssl
+    nvd
     unzip
     curl
     git
