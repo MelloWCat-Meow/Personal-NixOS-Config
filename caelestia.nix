@@ -39,9 +39,10 @@
         "foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/foot/foot.ini";
         "fastfetch/config.jsonc".source =
           config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/fastfetch/config.jsonc";
-          "hypr/hyprland.lua" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/hypr/hyprland.lua";
-    force = true;
+        "hypr/hyprland.lua" = {
+          source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/hypr/hyprland.lua";
+          force = true;
+        };
       };
 
       programs.fish.enable = true;
@@ -65,9 +66,7 @@
       wayland.windowManager.hyprland = {
         enable = true;
         configType = "lua";
-        settings = {};
-          };
-        };
+        settings = { };
       };
     };
 }
