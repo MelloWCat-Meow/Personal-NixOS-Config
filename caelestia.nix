@@ -66,7 +66,8 @@
       wayland.windowManager.hyprland = {
         enable = true;
         configType = "lua";
-        settings = { };
+        settings = {};
+        extraLuaFiles = [ "/etc/nixos/dotfiles/hypr/hyprland.lua" ];
       };
     };
 }
