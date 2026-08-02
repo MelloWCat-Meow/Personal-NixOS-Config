@@ -68,7 +68,7 @@
         configType = "lua";
         settings = { };
         extraLuaFiles = {
-          "null" = "/etc/nixos/dotfiles/hypr/hyprland.lua";
+          "duplicate" = "/etc/nixos/dotfiles/hypr/hyprland.lua";
         };
       };
     };
