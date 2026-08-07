@@ -145,6 +145,7 @@
     mpv
     onlyoffice-desktopeditors
     lavat
+    sptlrx
     nixfmt
     zoom-us
     discord
