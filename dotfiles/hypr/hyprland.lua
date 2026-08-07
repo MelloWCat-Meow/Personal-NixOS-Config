@@ -131,3 +131,7 @@ hl.bind(
 	hl.dsp.exec_cmd("caelestia shell brightness set 5%-"),
 	{ locked = true, repeating = true }
 )
+
+-- ScreenShot
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.global("caelestia:screenshotFreeze"))
+hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("caelestia screenshot"))
