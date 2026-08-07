@@ -56,6 +56,7 @@ hl.config({
 	},
 })
 
+
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -63,11 +64,23 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(files))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(ide))
-hl.bind(mainMod .. " + Q", hl.dsp.window.close()) -- was: killactive
-hl.bind(mainMod .. " + M", hl.dsp.exit()) -- VERIFY: see note below re: uwsm
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen()) -- VERIFY: some reports of a mode-toggle
--- quirk on 0.55, may need { mode = 1 }
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+hl.bind("CTRL + ALT + delete", hl.dsp.global("caelestia:session"))
+hl.bind(mainMod .. " + V", function()
+	hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+
+	local win = hl.get_active_window()
+	if win ~= nil and win.floating then
+		local mon = hl.get_active_monitor()
+		hl.dispatch(hl.dsp.window.resize({
+			exact = true,
+			x = math.floor(mon.width * 0.5),
+			y = math.floor(mon.height * 0.5),
+		}))
+		hl.dispatch(hl.dsp.window.center())
+	end
+end)
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + D", hl.dsp.global("caelestia:launcher"))
 hl.bind(mainMod .. " + L", hl.dsp.global("caelestia:lock"))
 
@@ -76,6 +89,12 @@ for i = 1, 4 do
 	hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
+
+-- Move focus (arrow keys)
+hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- Mouse move / resize
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
