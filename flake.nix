@@ -27,9 +27,8 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
-          ./caelestia.nix
-          ./webdev.nix
+          ./hosts/nixos/configuration.nix
+          ./modules/home-manager.nix
           home-manager.nixosModules.home-manager
         ];
       };
