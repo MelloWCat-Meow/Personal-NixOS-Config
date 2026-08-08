@@ -14,12 +14,22 @@ This is my personal NixOS setup with GNOME and Hyprland (Caelestia Dotfiles). I'
 
 ```
 .
-├── flake.nix              # Flake entry point, holds the inputs (nixpkgs, home-manager, caelestia-shell)
+├── flake.nix                      # Flake entry point, holds the inputs (nixpkgs, home-manager, caelestia-shell)
 ├── flake.lock
-├── configuration.nix       # Main system configuration
-├── caelestia.nix           # Home Manager + Hyprland/Caelestia module
-├── hardware-configuration.nix  # specific to my machine, so it's gitignored, generate your own
-└── dotfiles/               # fish, starship, foot, fastfetch configs (symlinked)
+├── hosts/
+│   └── nixos/
+│       ├── configuration.nix      # Host-specific glue: hostname, user, timezone, imports the modules below
+│       └── hardware-configuration.nix  # specific to my machine, so it's gitignored, generate your own
+├── modules/
+│   ├── home-manager.nix           # Home Manager bootstrap (wires it into the NixOS module system)
+│   ├── system/
+│   │   ├── boot.nix                # Bootloader (GRUB, dual-boot with Windows) + kernel
+│   │   ├── desktop.nix              # xserver, GDM, GNOME, Hyprland, xdg-portal
+│   │   ├── packages.nix             # System packages, GNOME excludes, fonts
+│   │   └── webdev.nix                # Apache + PHP-FPM + MariaDB local dev stack
+│   └── home/
+│       └── caelestia.nix          # Home Manager module: Caelestia shell/Hyprland, fish, starship, dotfiles symlinks
+└── dotfiles/                      # fish, starship, foot, fastfetch, hyprland-lua configs (symlinked)
 ```
 
 ## Notes
