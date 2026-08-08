@@ -19,7 +19,7 @@ This is my personal NixOS setup with GNOME and Hyprland (Caelestia Dotfiles). I'
 ├── hosts/
 │   └── nixos/
 │       ├── configuration.nix      # Host-specific glue: hostname, user, timezone, imports the modules below
-│       └── hardware-configuration.nix  # specific to my machine, so it's gitignored, generate your own
+│       └── hardware-configuration.nix  # specific to my machine, generate your own
 ├── modules/
 │   ├── home-manager.nix           # Home Manager bootstrap (wires it into the NixOS module system)
 │   ├── system/
