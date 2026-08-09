@@ -11,7 +11,7 @@
     device = "nodev";
     efiSupport = true;
     useOSProber = true;
-    configurationLimit = 5;
+    configurationLimit = 2;
   };
   boot.loader.timeout = 30;
   boot.loader.efi.canTouchEfiVariables = true;
