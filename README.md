@@ -36,7 +36,7 @@ This is my personal NixOS setup with GNOME and Hyprland (Caelestia Dotfiles). I'
 
 - Dual boots with Windows on the same NVMe drive.
 - GNOME is kept around for Fallback, Hyprland is the daily driver.
-- `hardware-configuration.nix` is intentionally not tracked, just run `sudo nixos-generate-config` to make your own before building.
+- `hardware-configuration.nix` Run `sudo nixos-generate-config` to make your own before building.
 
 ## If you want to adapt this
 
