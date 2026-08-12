@@ -1,7 +1,3 @@
-# Desktop/display server: GNOME (GDM) sebagai session utama, Hyprland
-# tersedia sebagai session terpisah di login screen (dipakai lewat
-# Caelestia, lihat modules/home/caelestia.nix).
-
 { pkgs, ... }:
 
 {

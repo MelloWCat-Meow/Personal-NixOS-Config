@@ -1,7 +1,3 @@
-# Bootloader (GRUB dual-boot dengan Windows, EFI shared dengan Windows ESP)
-# dan pilihan kernel. Dipisah biar configuration.nix per-host tidak perlu
-# tahu detail bootloader.
-
 { pkgs, ... }:
 
 {

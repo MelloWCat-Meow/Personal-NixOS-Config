@@ -1,7 +1,3 @@
-# Paket-paket system-wide, daftar aplikasi GNOME bawaan yang di-exclude,
-# dan font. Dipisah dari configuration.nix karena ini daftar yang paling
-# sering berubah/nambah dari waktu ke waktu.
-
 { pkgs, ... }:
 
 {
