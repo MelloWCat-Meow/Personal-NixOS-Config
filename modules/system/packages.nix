@@ -23,7 +23,8 @@
     nixfmt
     zoom-us
     discord
-    motrix-next
+    uget
+    uget-integrator
   ];
 
   environment.gnome.excludePackages = with pkgs; [
