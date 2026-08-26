@@ -19,40 +19,41 @@
         },
         {
             "type": "kernel",
-            "key": "│ {$2}{$1}  Kernel",
+            "key": "│ {$2}{$1}  Kernel",
             "format": "{$2}{release>22}{$1} │"
         },
         {
-            "type": "command",
-            "key": "│   Uptime",
-            "text": "uptime -p | cut -d ' ' -f 2-",
-            "format": "{>22} │"
+            "type": "uptime",
+            "key": "│   Uptime",
+            "format": "{$1}{days} d {hours} h {minutes} m>22 │"
         },
         {
             "type": "shell",
-            "key": "│ {$2}{$1}  Shell ",
+            "key": "│ {$2}{$1}  Shell ",
             "format": "{$2}{pretty-name>22}{$1} │"
         },
         {
             "type": "command",
-            "key": "│ {$3}{$1}  Mem   ",
+            "key": "│ {$3}{$1}  Mem   ",
             "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
             "format": "{$3}{>22}{$1} │"
         },
         {
             "type": "packages",
-            "key": "│   pkgs  ",
-            "format": "{all>22} │"
+            "key": "│   pkgs  ",
+            "format": "{all>22} │",
+            "nixSystem": false,
+            "nixUser": false
         },
         {
             "type": "command",
-            "key": "│ {$2}{$1}  User  ",
+            "key": "│ {$2}{$1}  User  ",
             "text": "echo $USER",
             "format": "{$2}{>22}{$1} │"
         },
         {
             "type": "command",
-            "key": "│   Host  ",
+            "key": "│   Host  ",
             "text": "hostnamectl hostname",
             "format": "{>22} │"
         },
