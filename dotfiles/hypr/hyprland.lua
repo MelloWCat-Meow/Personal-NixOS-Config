@@ -14,10 +14,15 @@ local ide = "codium"
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
--- Force Electron/Chromium/Qt apps (Brave, VSCodium, Discord) to render
--- natively on Wayland instead of falling back to blurry XWayland.
+-- Force Electron/Chromium/Qt/GTK apps (Brave, VSCodium, Discord, uGet,
+-- ONLYOFFICE) to render natively on Wayland instead of falling back to
+-- blurry XWayland.
 hl.env("NIXOS_OZONE_WL", "1")
 hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("GDK_BACKEND", "wayland,x11")
+-- Let Qt handle the fractional monitor scale (1.2) properly instead of
+-- rounding to an integer scale and upscaling (which causes blur).
+hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "PassThrough")
 
 ------------------
 ---- MONITORS ----
@@ -40,6 +45,12 @@ end)
 ---- LOOK AND FEEL ----
 -----------------------
 hl.config({
+	xwayland = {
+		-- Any app that still ends up on XWayland (e.g. Wine apps, older
+		-- GTK/Qt builds without Wayland support) renders at scale 1.0
+		-- (sharp) instead of being blurry-upscaled by the compositor.
+		force_zero_scaling = true,
+	},
 	decoration = {
 		rounding = 10,
 		rounding_power = 2,
