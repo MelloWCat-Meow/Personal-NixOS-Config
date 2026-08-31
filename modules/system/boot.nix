@@ -19,10 +19,7 @@
     description = "Prune old system generations to match boot.configurationLimit";
     after = [ "nix-gc.service" ];
     serviceConfig.Type = "oneshot";
-    path = [
-      pkgs.nix
-      config.system.build.toplevel
-    ];
+    path = [pkgs.nix];
     script = ''
       nix-env --delete-generations +2 --profile /nix/var/nix/profiles/system
       nix-collect-garbage -d
