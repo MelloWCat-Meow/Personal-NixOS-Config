@@ -12,6 +12,7 @@
     unzip
     curl
     git
+    python3
     gh
     vscodium
     brave
