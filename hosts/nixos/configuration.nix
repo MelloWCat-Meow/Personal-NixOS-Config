@@ -16,16 +16,10 @@
     "flakes"
   ];
 
-  # Keep /nix/store from bloating: auto-GC old generations weekly,
-  # and auto dedupe store paths on every build.
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 3d";
-  };
+  # GC now handled by nixos-gc-generations in modules/system/boot.nix, tied to boot.loader.grub.configurationLimit).
   nix.settings.auto-optimise-store = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "NixOS"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
