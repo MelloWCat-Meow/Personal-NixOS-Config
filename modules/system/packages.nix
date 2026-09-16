@@ -17,6 +17,7 @@
     vscodium
     brave
     fastfetch
+    cowsay
     btop
     mpv
     onlyoffice-desktopeditors
