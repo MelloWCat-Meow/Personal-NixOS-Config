@@ -20,7 +20,7 @@
   # and auto dedupe store paths on every build.
   nix.gc = {
     automatic = true;
-    dates = "weekly";
+    dates = "daily";
     options = "--delete-older-than 3d";
   };
   nix.settings.auto-optimise-store = true;
