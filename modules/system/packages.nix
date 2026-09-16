@@ -18,6 +18,7 @@
     brave
     fastfetch
     cowsay
+    tty-clock
     btop
     mpv
     onlyoffice-desktopeditors
