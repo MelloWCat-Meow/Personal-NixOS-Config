@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
 
     ../../modules/system/boot.nix
+    ../../modules/system/build-limits.nix
     ../../modules/system/desktop.nix
     ../../modules/system/packages.nix
     ../../modules/system/webdev.nix
