@@ -19,7 +19,7 @@
   # GC now handled by nixos-gc-generations in modules/system/boot.nix, tied to boot.loader.grub.configurationLimit).
   nix.settings.auto-optimise-store = true;
 
-  networking.hostName = "NixOS"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
