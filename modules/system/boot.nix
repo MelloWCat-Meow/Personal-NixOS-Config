@@ -22,7 +22,7 @@
     path = [pkgs.nix];
     script = ''
       nix-env --delete-generations +2 --profile /nix/var/nix/profiles/system
-      nix-collect-garbage -d
+      nix-collect-garbage --delete-older-than 7d
       /run/current-system/bin/switch-to-configuration boot
     '';
   };
