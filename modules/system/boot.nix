@@ -17,12 +17,11 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   systemd.services.nixos-gc-generations = {
     description = "Prune old system generations to match boot.configurationLimit";
-    after = [ "nix-gc.service" ];
     serviceConfig.Type = "oneshot";
     path = [pkgs.nix];
     script = ''
       nix-env --delete-generations +2 --profile /nix/var/nix/profiles/system
-      nix-collect-garbage --delete-older-than 7d
+      nix-collect-garbage -d
       /run/current-system/bin/switch-to-configuration boot
     '';
   };
