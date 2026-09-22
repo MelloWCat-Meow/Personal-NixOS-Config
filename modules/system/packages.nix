@@ -13,6 +13,7 @@
     curl
     git
     python3
+    pkgs.python314Packages.markitdown
     gh
     vscodium
     brave
