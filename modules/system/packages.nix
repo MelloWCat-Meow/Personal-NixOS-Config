@@ -14,6 +14,7 @@
     git
     python3
     pkgs.python314Packages.markitdown
+    zoxide
     gh
     vscodium
     brave
