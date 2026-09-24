@@ -20,7 +20,7 @@
     brave
     fastfetch
     cowsay
-    tty-clock
+    tenki
     btop
     mpv
     onlyoffice-desktopeditors
