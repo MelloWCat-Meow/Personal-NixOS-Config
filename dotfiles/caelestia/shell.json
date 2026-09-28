@@ -8,5 +8,8 @@
         "scrollActions": {
             "brightness": true
         }
+    },
+    "services": {
+        "weatherUnits": "Celsius"
     }
 }
