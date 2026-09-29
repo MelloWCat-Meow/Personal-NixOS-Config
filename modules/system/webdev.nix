@@ -74,7 +74,7 @@ in
   environment.systemPackages = with pkgs; [
     phpWithExts
     phpPackages.composer
-    nodejs_24
+    nodejs
   ];
 
   # --- Jangan auto-start pas boot ---
