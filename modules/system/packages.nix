@@ -30,6 +30,7 @@
     discord
     uget
     uget-integrator
+    abiword
   ];
 
   environment.gnome.excludePackages = with pkgs; [
