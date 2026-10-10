@@ -8,6 +8,9 @@ if status is-interactive
     # Better ls
     command -v eza &> /dev/null && alias ls='eza --icons --group-directories-first -1'
 
+    #libgcc
+    set -gx LD_LIBRARY_PATH $NIX_LD_LIBRARY_PATH $LD_LIBRARY_PATH   
+
     # Abbrs
     abbr lg 'lazygit'
     abbr gd 'git diff'
