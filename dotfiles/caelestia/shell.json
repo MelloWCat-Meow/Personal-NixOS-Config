@@ -9,7 +9,17 @@
             "brightness": true
         }
     },
+    "general": {
+        "apps": {
+            "explorer": [
+                "nautilus",
+                "--new-window"
+            ]
+        }
+    },
     "services": {
+        "clockFormat": "TwentyFourHour",
+        "dataUnits": "Decimal",
         "weatherUnits": "Celsius"
     }
 }
