@@ -31,6 +31,7 @@
     uget
     uget-integrator
     abiword
+    wine
   ];
 
   environment.gnome.excludePackages = with pkgs; [
