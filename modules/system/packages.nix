@@ -13,7 +13,6 @@
     curl
     git
     python3
-    python314Packages.markitdown
     zoxide
     gh
     vscodium
@@ -30,7 +29,6 @@
     discord
     uget
     uget-integrator
-    abiword
     wine
   ];
 
