@@ -30,6 +30,7 @@
     uget
     uget-integrator
     wine
+    projectlibre
   ];
 
   environment.gnome.excludePackages = with pkgs; [
