@@ -31,6 +31,7 @@
     uget-integrator
     wine
     projectlibre
+    ani-cli
   ];
 
   environment.gnome.excludePackages = with pkgs; [
