@@ -32,6 +32,7 @@
     wine
     projectlibre
     ani-cli
+    cava
   ];
 
   environment.gnome.excludePackages = with pkgs; [
