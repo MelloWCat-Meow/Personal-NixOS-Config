@@ -33,6 +33,7 @@
     projectlibre
     ani-cli
     cava
+    steam-run
   ];
 
   environment.gnome.excludePackages = with pkgs; [
