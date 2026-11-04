@@ -33,7 +33,23 @@
     projectlibre
     ani-cli
     cava
-    steam-run
+    (steam.override {
+      extraLibraries = pkgs: with pkgs; [
+        xorg.libXtst
+        xorg.libXext
+        xorg.libXrender
+        xorg.libXi
+        xorg.libXrandr
+        xorg.libXxf86vm
+        xorg.libXcursor
+        xorg.libXinerama
+        gtk3
+        glib
+        fontconfig
+        freetype
+        alsa-lib
+      ];
+    }).run
   ];
 
   environment.gnome.excludePackages = with pkgs; [
