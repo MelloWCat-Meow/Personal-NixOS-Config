@@ -1,3 +1,4 @@
+
 { ... }:
 
 let
@@ -7,31 +8,44 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       gnome-shell = prev.gnome-shell.overrideAttrs (old: {
-        postInstall = (old.postInstall or "") + ''
+        preFixup = (old.preFixup or "") + ''
           theme=$out/share/gnome-shell/gnome-shell-theme.gresource
           work=$(mktemp -d)
           prefix=/org/gnome/shell/theme/
 
-          # bongkar gresource
+          # Extract seluruh resource GNOME Shell
           for r in $(gresource list "$theme"); do
             rel="''${r#$prefix}"
             mkdir -p "$work/$(dirname "$rel")"
             gresource extract "$theme" "$r" > "$work/$rel"
           done
 
-          # tambahkan override latar di CSS khusus GDM
-          test -f "$work/gdm.css" || { echo "gdm.css tidak ditemukan"; exit 1; }
-          cat >> "$work/gdm.css" <<EOF
+          # Modifikasi stylesheet GNOME Shell
+          found=0
 
+          for css in "$work"/gnome-shell*.css; do
+            [ -f "$css" ] || continue
+            found=1
+
+            cat >> "$css" <<EOF
+
+          /* Custom GDM Wallpaper */
           #lockDialogGroup {
-            background: #000000 url(file://${wallpaper});
+            background: #000000 url("file://${wallpaper}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
           }
           EOF
+          done
 
-          # kemas ulang
+          if [ "$found" -eq 0 ]; then
+            echo "GNOME Shell CSS tidak ditemukan!"
+            find "$work" -type f
+            exit 1
+          fi
+
+          # Rebuild GResource
           {
             echo '<?xml version="1.0" encoding="UTF-8"?>'
             echo '<gresources><gresource prefix="/org/gnome/shell/theme">'
@@ -39,7 +53,12 @@ in
             echo '</gresource></gresources>'
           } > "$work.xml"
 
-          glib-compile-resources --sourcedir="$work" --target="$theme" "$work.xml"
+          glib-compile-resources \
+            --sourcedir="$work" \
+            --target="$theme" \
+            "$work.xml"
+
+          rm -rf "$work" "$work.xml"
         '';
       });
     })
