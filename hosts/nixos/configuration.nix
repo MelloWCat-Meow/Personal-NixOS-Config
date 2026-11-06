@@ -7,6 +7,7 @@
     ../../modules/system/boot.nix
     ../../modules/system/build-limits.nix
     ../../modules/system/desktop.nix
+    ../../modules/system/gdm-wallpaper.nix
     ../../modules/system/packages.nix
     ../../modules/system/webdev.nix
   ];
@@ -77,7 +78,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-   nixpkgs.config.problems.handlers."gtk+".broken = "warn";
+  nixpkgs.config.problems.handlers."gtk+".broken = "warn";
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
