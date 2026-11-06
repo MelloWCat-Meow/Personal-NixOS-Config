@@ -16,6 +16,7 @@
     zoxide
     gh
     vscodium
+    cisco-packet-tracer_9
     brave
     fastfetch
     cowsay
