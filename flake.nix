@@ -1,19 +1,25 @@
 {
   description = "NixOS configuration for mellowcat";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  
+inputs = {
+  # Main repository: unstable
+  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+  # Secondary repository: stable
+  nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+  caelestia-shell = {
+    url = "github:caelestia-dots/shell";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
+
+  home-manager = {
+    url = "github:nix-community/home-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+};
+
 
   outputs =
     {
