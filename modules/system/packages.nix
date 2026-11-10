@@ -1,5 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
+let
+  stablePkgs = import inputs.nixpkgs-stable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
+in
 {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -17,7 +23,8 @@
     gh
     vscodium
     cisco-packet-tracer_9
-    brave
+    stablePkgs.brave
+    stablePkgs.brave-origin
     fastfetch
     cowsay
     tenki
