@@ -7,7 +7,7 @@
 ---------------------
 local mainMod = "SUPER"
 local terminal = "foot"
-local browser = "brave"
+local browser = "brave-origin"
 local files = "nautilus"
 local ide = "codium"
 
@@ -63,6 +63,17 @@ hl.config({
 			enabled = true,
 			range = 15,
 			render_power = 3,
+		},
+	},
+})
+
+hl.config({
+	input = {
+		touchpad = {
+			natural_scroll = true,
+			-- opsional, biar terasa seperti GNOME/Windows:
+			tap_to_click = true,
+			clickfinger_behavior = true, -- klik 2 jari = klik kanan, 3 jari = klik tengah
 		},
 	},
 })
@@ -146,3 +157,22 @@ hl.bind(
 -- ScreenShot
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.global("caelestia:screenshotFreeze"))
 hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("caelestia screenshot"))
+
+-- Alt+Tab: pindah fokus ke window berikutnya di workspace aktif
+hl.bind("ALT + Tab", function()
+	hl.dispatch(hl.dsp.window.cycle_next())
+	hl.dispatch(hl.dsp.window.bring_to_top())
+end)
+
+-- Alt+Shift+Tab: kebalikannya (window sebelumnya)
+hl.bind("ALT + SHIFT + Tab", function()
+	hl.dispatch(hl.dsp.window.cycle_next({ next = false }))
+	hl.dispatch(hl.dsp.window.bring_to_top())
+end)
+
+-- Swipe 3 jari horizontal di touchpad: pindah workspace
+hl.gesture({
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
+})
