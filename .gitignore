@@ -12,4 +12,3 @@ secrets.json
 .envrc
 *.swp
 .DS_Store
-hosts/nixos/hardware-configuration.nix
