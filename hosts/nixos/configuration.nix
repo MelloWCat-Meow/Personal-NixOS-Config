@@ -10,6 +10,7 @@
     ../../modules/system/gdm-wallpaper.nix
     ../../modules/system/packages.nix
     ../../modules/system/webdev.nix
+    ../../modules/system/direnv.nix
   ];
 
   # Enable flakes support
