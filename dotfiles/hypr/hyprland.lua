@@ -106,10 +106,11 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + D", hl.dsp.global("caelestia:launcher"))
 hl.bind(mainMod .. " + L", hl.dsp.global("caelestia:lock"))
 
--- Workspaces 1-4, mainMod+SHIFT to move window
-for i = 1, 4 do
-	hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+-- Workspaces 1-10, mainMod+SHIFT to move window
+for i = 1, 10 do
+	local key = i % 10
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Move focus (arrow keys)
