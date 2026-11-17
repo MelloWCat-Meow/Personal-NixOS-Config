@@ -23,7 +23,6 @@ in
     gh
     vscodium
     cisco-packet-tracer_9
-    stablePkgs.brave
     stablePkgs.brave-origin
     fastfetch
     cowsay
