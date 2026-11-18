@@ -22,6 +22,7 @@ in
     zoxide
     gh
     vscodium
+    claude-code
     cisco-packet-tracer_9
     stablePkgs.brave-origin
     fastfetch
