@@ -6,9 +6,6 @@ inputs = {
   # Main repository: unstable
   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  # Secondary repository: stable
-  nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
-
   caelestia-shell = {
     url = "github:caelestia-dots/shell";
     inputs.nixpkgs.follows = "nixpkgs";
