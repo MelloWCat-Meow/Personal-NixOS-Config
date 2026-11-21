@@ -12,6 +12,7 @@
     unzip
     curl
     git
+    ngrok
     python3
     zoxide
     gh
